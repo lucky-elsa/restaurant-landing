@@ -348,45 +348,56 @@
     var priceElement = $('<h4>', {
         text: foodArray[i].price
     });
-
     // Append elements to the divElement
     divElement.append(discountElement, imgElement, nameElement, priceElement);
-
+    var total_price = 0;
     // Create modal element
     var modalElement = $(
         `<div id="modal-${foodArray[i].id}" class="modal">
           <div class="modal-content">
             <span class="close">&times;</span>
-            <h3 style="text-align: center; margin-top: 5px">Order of ${foodArray[i].name}</h3>
-            <div style="padding: 15px; margin-top: 20px; display: flex">
-              <div style="width: 20%; padding-top: 7px">Amount: </div>
-              <input placeholder="Type amount" style="padding-left: 7px;width: 80%; height: 35px; border-radius: 5px;" type="number" />
+            <h2 style="text-align: center; margin-top: 5px; font-weight: bold">Order of ${foodArray[i].name}</h2>
+            <div class="form-tag">
+              <div class="label-div">Amount: </div>
+              <input onchange='changeInputValue(${foodArray[i].id}, event)' value=0 id="${foodArray[i].id}_amount" class="input-tag" placeholder="Type amount" type="number" />
             </div>
-            <div style="padding: 15px;">
-              <label style="width: 25%;">Address: </label>
-              <input placeholder="Type your address" style="width: 85%; height: 35px; border-radius: 5px;" type="type" />
+            <input id="${foodArray[i].id}_price" type='hidden' value="${foodArray[i].price}" />
+            <div class="form-tag">
+              <div class="label-div">Address: </div>
+              <input class="input-tag" placeholder="Type your address" type="text" />
             </div>
-            <div style="padding: 15px;">
-              <label style="width: 25%;">Phone: </label>
-              <input placeholder="Type your phone number" style="width: 85%; height: 35px; border-radius: 5px;" type="type" />
+            <div class="form-tag">
+              <div class="label-div">Phone: </div>
+              <input class="input-tag" placeholder="Type your phone number" type="text" />
             </div>
-            <div style="padding: 15px;">
-              <label style="width: 25%;">Phone: </label>
-              <input disabled style="width: 85%; height: 35px; border-radius: 5px;" type="type" />
+            <div class="form-tag">
+              <div class="label-div">Total Price: </div>
+              <input id="${foodArray[i].id}_total_price" class="input-tag" type="text" />
             </div>
-            <div style="padding: 15px;">
-              <button style="padding: 10px 15px; font-size: 16px; font-weight: 500; text-align: center; color: #fff: background-color: #ff6b00l; border-raduis: 20px; border: 2px solid #ff6b00;">SUBMIT</button>
+            <div class="form-tag" disabled style="justify-content: center; justify-items: center">
+              <button class="order-button">SUBMIT</button>
             </div>
           </div>
         </div>`
     );
 
+    
     // Append div element to the divList container
     $('.items').append(divElement);
 
     // Append modal element to the modalList container
     $('.modalItem').append(modalElement);
-}
+
+    var amountInput = 0;
+    var totalPriceInput = 0;
+
+    var priceInput = $(`#${foodArray[i].id}_price`);
+    function changeInputValue(id, event) {
+      amountInput = event.target.value;
+      totalPriceInput = amountInput * foodArray[id].price;
+      $(`#${foodArray[id].id}_total_price`).val('$'+totalPriceInput);
+    }
+  }
 
 $('.clickable-div').click(function () {
     var modalId = $(this).data('modal-target');

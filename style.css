@@ -678,6 +678,44 @@ footer p {
     cursor: pointer;
 }
 
+.form-tag {
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.label-div {
+    width: 20%;
+    padding-top: 7px;
+}
+
+.input-tag {
+    padding-left: 8px;
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    border-color: #787878;
+}
+
+.order-button {
+    padding: 10px 23px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    background: #ff6b00;
+    border-radius: 50px;
+    border: 2px solid #ff6b00;
+    transition: .2s ease-in-out;
+}
+
+.order-button:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+    font-weight: 600;
+}
+
 @media only screen and (max-width: 1170px) {
 
     /* About Us */
@@ -701,6 +739,7 @@ footer p {
     .about-us .main-div .content:first-child {
         height: 200px;
     }
+
     .modal-content {
         background-color: #fefefe;
         margin: 30% auto;
@@ -937,6 +976,7 @@ footer p {
     footer p {
         padding: 0px 20px;
     }
+
     .modal-content {
         background-color: #fefefe;
         margin: 30% auto;
