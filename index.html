@@ -50,19 +50,6 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="modal-container" id="modal-container">
-        <div class="
-          <h1>Modals are 😎</h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </p>
-          <button id="close">Close</button>
-        </div>
-      </div>
-
-    </section>
 
     <section class="menu" id="menu">
       <h2 class="all-subheading">Our <label>Item's</label></h2>
@@ -370,8 +357,26 @@
         `<div id="modal-${foodArray[i].id}" class="modal">
           <div class="modal-content">
             <span class="close">&times;</span>
-            <h3>${foodArray[i].name}</h3>
-            <p>This is the content of ${foodArray[i].name}</p>
+            <h3 style="text-align: center; margin-top: 5px">Order of ${foodArray[i].name}</h3>
+            <div style="padding: 15px; margin-top: 20px; display: flex">
+              <div style="width: 20%; padding-top: 7px">Amount: </div>
+              <input placeholder="Type amount" style="padding-left: 7px;width: 80%; height: 35px; border-radius: 5px;" type="number" />
+            </div>
+            <div style="padding: 15px;">
+              <label style="width: 25%;">Address: </label>
+              <input placeholder="Type your address" style="width: 85%; height: 35px; border-radius: 5px;" type="type" />
+            </div>
+            <div style="padding: 15px;">
+              <label style="width: 25%;">Phone: </label>
+              <input placeholder="Type your phone number" style="width: 85%; height: 35px; border-radius: 5px;" type="type" />
+            </div>
+            <div style="padding: 15px;">
+              <label style="width: 25%;">Phone: </label>
+              <input disabled style="width: 85%; height: 35px; border-radius: 5px;" type="type" />
+            </div>
+            <div style="padding: 15px;">
+              <button style="padding: 10px 15px; font-size: 16px; font-weight: 500; text-align: center; color: #fff: background-color: #ff6b00l; border-raduis: 20px; border: 2px solid #ff6b00;">SUBMIT</button>
+            </div>
           </div>
         </div>`
     );
